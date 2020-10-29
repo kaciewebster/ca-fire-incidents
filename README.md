@@ -102,6 +102,8 @@ plugins.HeatMapWithTime(df_years_list, index=[2013, 2014, 2015, 2016, 2017, 2018
   ```
 </details>
 
+![](img/inter-map-screen-shots/2013.png)
+
 <details>
   <summary>Line Plots</summary>
   
