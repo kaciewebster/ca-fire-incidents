@@ -60,16 +60,21 @@ To answer the questions above, only 10 columns are going to be utilized from thi
   ```python
 ca_fires_df = ca_fires_df.dropna(axis=0, subset=['AcresBurned'])
   # drops observations with null values in 'AcresBurned'
+  
 ca_fires_df = ca_fires_df[ca_fires_df['AcresBurned'] != 0]
   # drops observations with 0 values in 'AcresBurned'
+  
 ca_fires_df = ca_fires_df[(ca_fires_df['Latitude'] >= 32) & (ca_fires_df['Latitude'] <= 42) & (ca_fires_df['Longitude'] <= -114) & (ca_fires_df['Longitude'] >= -126)]
   # drops observations that reside far outside of California
+  
 ca_fires_df[(ca_fires_df['Latitude'] >= 38) & (ca_fires_df['Latitude'] <= 41) & (ca_fires_df['Longitude'] <= -115) & (ca_fires_df['Longitude'] >= -118)]
 ca_fires_df[ca_fires_df['Counties'] == 'State of Nevada']
   # locates which values are from Nevada
+  
 ca_fires_df = ca_fires_df[ca_fires_df['Counties'] != 'State of Nevada']
 ca_fires_df = ca_fires_df[ca_fires_df['Name'] != 'Tram Fire']
   # drops observations from Nevada
+  
 ca_fires_df = ca_fires_df[ca_fires_df['StartYear'] >= 2013]
 ca_fires_df = ca_fires_df.groupby('UniqueId').max().reset_index()
   # drops observations that are not in 2013-2019
