@@ -10,24 +10,26 @@ The data used in this presentation were taken from [Kaggle](https://www.kaggle.c
 # Libraries Used
 <details>
   <summary></summary>
-  <pre><code>
-    import numpy as np
-    import pandas as pd
-    import matplotlib.pyplot as plt
-    import folium
-    import folium.plugins as plugins
-    import scipy.stats as stats
-    from datetime import datetime, timedelta
-    from scipy.stats import pearsonr
-  </pre></code>
+  
+  ```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import folium
+import folium.plugins as plugins
+import scipy.stats as stats
+from datetime import datetime, timedelta
+from scipy.stats import pearsonr
+  ```
 </details>
 
 # Load Data
 <details>
   <summary></summary>
-  <pre><code>
-  full_fires_df = pd.read_csv('/Users/kaciewebster/Documents/dsi/ca-fire-incidents/California_Fire_Incidents.csv')
-  </pre></code>
+  
+  ```python
+full_fires_df = pd.read_csv('/Users/kaciewebster/Documents/dsi/ca-fire-incidents/California_Fire_Incidents.csv')
+  ```
 </details>
 
 # Data Cleaning
@@ -54,13 +56,33 @@ To answer the questions above, only 10 columns are going to be utilized from thi
 10. MajorIncident: a binary response of True or False determining whether the fire was considered a 'major incident'
 <details>
   <summary></summary>
-  <pre><code>
-    ca_fires_df = ca_fires_df.dropna(axis=0, subset=['AcresBurned'])
-    ca_fires_df = ca_fires_df[ca_fires_df['AcresBurned'] != 0]
-    ca_fires_df = ca_fires_df[(ca_fires_df['Latitude'] >= 32) & (ca_fires_df['Latitude'] <= 42) & (ca_fires_df['Longitude'] <= -114) & (ca_fires_df['Longitude'] >= -126)]
-    ca_fires_df = ca_fires_df[ca_fires_df['Counties'] != 'State of Nevada']
-    ca_fires_df = ca_fires_df[ca_fires_df['Name'] != 'Tram Fire']
-    ca_fires_df = ca_fires_df[ca_fires_df['StartYear'] >= 2013]
-    ca_fires_df = ca_fires_df.groupby('UniqueId').max().reset_index()
-  </pre><code>
+  
+  ```python
+ca_fires_df = ca_fires_df.dropna(axis=0, subset=['AcresBurned'])
+ca_fires_df = ca_fires_df[ca_fires_df['AcresBurned'] != 0]
+ca_fires_df = ca_fires_df[(ca_fires_df['Latitude'] >= 32) & (ca_fires_df['Latitude'] <= 42) & (ca_fires_df['Longitude'] <= -114) & (ca_fires_df['Longitude'] >= -126)]
+ca_fires_df = ca_fires_df[ca_fires_df['Counties'] != 'State of Nevada']
+ca_fires_df = ca_fires_df[ca_fires_df['Name'] != 'Tram Fire']
+ca_fires_df = ca_fires_df[ca_fires_df['StartYear'] >= 2013]
+ca_fires_df = ca_fires_df.groupby('UniqueId').max().reset_index()
+  ```
+</details>
+
+# EDA
+First, let's see if the total number of fires is increasing over the years.
+<details>
+  <summary></summary>
+  
+  ```python
+num_fires = ca_fires_df.groupby('StartYear')['AcresBurned'].count()
+years = sorted(ca_fires_df['StartYear'].unique())
+    
+fig, ax = plt.subplots()
+ax.plot(years, num_fires, color='red')
+ax.set_title('Number of Fires per Year')
+ax.set_xlabel('Year')
+ax.set_ylabel('Fires')
+    
+plt.show()
+  ```
 </details>
