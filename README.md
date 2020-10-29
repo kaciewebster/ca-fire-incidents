@@ -85,7 +85,7 @@ ca_fires_df = ca_fires_df.groupby('UniqueId').max().reset_index()
 
 # EDA
 
-To take a look at where the fires are distributed across California refer to the time-map.html in the img folder.
+To take a look at where the fires are distributed across California refer to the time-map.html in the img folder. For simplicity, here are the distributions from 2013 and 2019. There is a noticeable increase in number of fires from 2013 to 2019.
 
 <details>
   <summary></summary>
@@ -102,7 +102,8 @@ plugins.HeatMapWithTime(df_years_list, index=[2013, 2014, 2015, 2016, 2017, 2018
   ```
 </details>
 
-![](img/inter-map-screen-shots/2013.png)
+<img src="img/inter-map-screen-shots/2013.png" height="400" width="600">
+<img src="img/inter-map-screen-shots/2019.png" height="400" width="600">
 
 <details>
   <summary>Line Plots</summary>
