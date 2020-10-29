@@ -84,6 +84,24 @@ ca_fires_df = ca_fires_df.groupby('UniqueId').max().reset_index()
 </details>
 
 # EDA
+
+To take a look at where the fires are distributed across California refer to the time-map.html in the img folder.
+
+<details>
+  <summary></summary>
+  
+  ```python
+df_copy = ca_fires_df.copy()
+df_years_list = []
+for year in df_copy['StartYear'].sort_values().unique():
+    df_years_list.append(df_copy.loc[df_copy['StartYear']==year, ['Latitude', 'Longitude']].groupby(['Latitude', 'Longitude']).sum().reset_index().values.tolist())
+# creates a list of lists where each element is a year and each element in that list element contains the latitudes and longitudes of each fire.
+    
+m = folium.Map(location=[34.0522, -118.2437], zoom_start=5)
+plugins.HeatMapWithTime(df_years_list, index=[2013, 2014, 2015, 2016, 2017, 2018, 2019], radius=5, min_opacity=0.5, max_opacity=0.8, use_local_extrema=True).add_to(m)
+  ```
+</details>
+
 <details>
   <summary>Line Plots</summary>
   
@@ -140,12 +158,15 @@ plt.show()
 
 ![](img/med-acres-line-plot.png) ![](img/max-acres-line-plot.png)
 
-These plots...
+These line plots help to reveal some insight into what kind of fires are burning throughout California. The line plot describing the number of fires shows that despite the decrease in fires after 2017, the number of fires is growing overall. However, does that mean that there is more damage? The other three line plots describe the nature of these fires. 'Total AcresBurned per Year' shows that the total area of land affected by these fires was increasing until 2019. The steep decrease implies that 2019 was a unique year for wildfires. 'Median AcresBurned per Year" shows that the most years had mostly small fires with the exception of 2014. The median fires for all the years other than 2014 were relatively small compared to the median fire for 2014. 'Acres of the Largest Fire per Year' helps to show where the outliers reside. Since 2018 has the maximum acres burned for all the years, this indicates that there was a terrible fire that occurred. The size of that fire was about 1.5 times bigger than the largest fire of 2013.
 
 <details>
   <summary>Bar Plots</summary>
   
   ```python
+grouped_acres_sum = ca_fires_df.groupby(['StartYear', 'StartMonth']).sum('AcresBurned')['AcresBurned'].reset_index()
+# groups the dataset by StartYear and StartMonth and sums the AcresBurned.
+
 def parse_grouped_sums(grouped_df, year_lst):
     '''
     Creates a list of dataframes parsed by year.
@@ -184,7 +205,7 @@ plt.show()
 
 ![](img/months-bar-plots.png)
 
-These plots ...
+These bars plot show that in the earlier years, more acres are burned in the spring and summer time. However, by 2019, there is a shift where more acres are burning in the summer and fall time.
 
 # Hypothesis Testing
 1. Correlation Test
