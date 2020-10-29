@@ -76,8 +76,10 @@ ca_fires_df = ca_fires_df[ca_fires_df['Name'] != 'Tram Fire']
   # drops observations from Nevada
   
 ca_fires_df = ca_fires_df[ca_fires_df['StartYear'] >= 2013]
-ca_fires_df = ca_fires_df.groupby('UniqueId').max().reset_index()
   # drops observations that are not in 2013-2019
+  
+ca_fires_df = ca_fires_df.groupby('UniqueId').max().reset_index()
+  # groups fires by their ID to avoid double counting bigger fires
   ```
 </details>
 
