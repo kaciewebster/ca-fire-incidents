@@ -245,3 +245,68 @@ corr, p_value
 # executes the correlation test and returns a coefficient and p-value.
   ```
 </details>
+
+Analysis ...
+
+2. Bayes Hypothesis Test
+
+<details>
+  <summary>Posterior Distribution Plot</summary>
+  
+  ```python
+mi_lst = []
+for year in year_lst:
+    mi_lst.append(ca_fires_df[ca_fires_df['StartYear']==year]['MajorIncident'])
+# creates a list where each element is the data from the column, 'MajorIncident', of one year.
+
+nk_dct = {}
+for bool_lst in mi_lst:
+    nk_dct[len(bool_lst)] = sum(bool_lst)
+# creates a dictionary where the key is the number of observations in that year and the value is the number of 'MajorIncidents'.
+
+post_dist = []
+for n, k in nk_dct.items():
+    post_dist.append(stats.distributions.beta(a = 1 + k, b = 1 + n - k))
+# runs a posterior distribution for each year.
+
+fig, ax = plt.subplots(figsize=(10, 6))
+x = np.linspace(0,1,1000)
+year_lst = [2013, 2014, 2015, 2016, 2017, 2018, 2019]
+for idx, dist in enumerate(post_dist):
+    ax.plot(x, dist.pdf(x), label=f'{year_lst[idx]}')
+    ax.legend()
+    ax.set_title('Posterior Probabilities of a Major Incident by Year')
+    ax.set_xlabel('p')
+    ax.set_ylabel('pdf')
+
+fig.savefig('posterior-plots.png')
+# plots the posterior distributions for each year.
+  ```
+</details>
+
+![](img/posterior-plots.png)
+
+<details>
+  <summary>Calculations</summary>
+  
+  ```python
+beta_2013 = post_dist[0]
+beta_2019 = post_dist[-1]
+# assigns the beta distributions of 2013 and 2019.
+
+sim_2013 = beta_2013.rvs(size=10000)
+sim_2019 = beta_2019.rvs(size=10000)
+# creates 10,000 simulations from the 'MajorIncident' column.
+
+(sim_2019 > sim_2013).mean()
+# calculates what the probability is that P(MajorIncident|2019) > P(MajorIncident|2013).
+
+beta_2013 = post_dist[0]
+beta_2018 = post_dist[-2]
+sim_2013 = beta_2013.rvs(size=10000)
+sim_2018 = beta_2018.rvs(size=10000)
+(sim_2018 > sim_2013).mean()
+# does the same thing as above but for 2013 and 2018.
+  ```
+</details>
+
