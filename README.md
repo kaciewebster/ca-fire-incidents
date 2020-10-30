@@ -56,7 +56,7 @@ These bars plot show that in the earlier years, more acres are burned in the spr
 
 # Proportions of Acres Burned for Each Year
 
-![](img/stacked-bar-plot.png)
+![](img/stacked-bar.png)
 
 This stacked bar plot shows that the proportion of acres burned for each month increases by each year until 2019. 2017 and 2018 appear to contribute the most especially in July to December.
 
