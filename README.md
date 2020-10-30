@@ -1,6 +1,8 @@
 # ca-fire-incidents
 A peak into the California Wildfires.
 
+![](img)
+
 # Introduction
 California is known to have some of the most devastating wildfires in the country, and in recent years, it feels as though they are getting worse. However, what does 'worse' mean? Are the number of fires increasing? Are the fires causing more damage to the land? Do people believe fires are a major incident? This presentation will focus on these questions and see if these wildfire seasons are changing. And if so? How?
 
@@ -31,7 +33,7 @@ To answer the questions above, only 10 columns are going to be utilized from thi
 
 # EDA
 
-To see how these plots were produced or these calculations found, please reference the [ca-fires-final.ipynb](https://github.com/kaciewebster/ca-fire-incidents/blob/main/src/ca-fire-final.ipynb) file in the src folder.
+To see how these plots were produced or these calculations found, please reference the [ca-fires-final.ipynb](/src/ca-fires-final.ipynb) file in the src folder.
 
 Here are the distributions from 2013 and 2019. There is a noticeable increase in number of fires from 2013 to 2019.
 
