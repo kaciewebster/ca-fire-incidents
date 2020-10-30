@@ -46,11 +46,17 @@ Here are the distributions from 2013 and 2019. There is a noticeable increase in
 
 These line plots help to reveal some insight into what kind of fires are burning throughout California. The line plot describing the number of fires shows that despite the decrease in fires after 2017, the number of fires is still growing overall. However, does that mean that there is more damage? The other three line plots describe the nature of these fires. 'Total AcresBurned per Year' shows that the total area of land affected by these fires was increasing until 2019. With further research, it was said that 2019 was an 'anomaly' to scientists. 2019 had heavy rains, which prevented the wildfires from getting out of control and burning too much land. 'Median AcresBurned per Year' shows that most years had mostly small fires with the exception of 2014. The median fires for all the years other than 2014 were relatively small compared to the median fire for 2014. 'Acres of the Largest Fire per Year' helps to show that the largest fires were in the years 2017 and 2018, which explains the sharp increase in those years for the 'Total AcresBurned' plot.
 
-# Distribution of Acres Burned by Month of Each Year
+# Distribution of Acres Burned by Month
 
 ![](img/months-bar-plots.png)
 
 These bars plot show that in the earlier years, more acres are burned in the spring and summer time. However by 2019, there is a shift where more acres are burning in the summer and fall time.
+
+# Proportions of Acres Burned for Each Year
+
+![](img/stacked-bar-plot.png)
+
+This stacked bar plot shows that the proportion of acres burned for each month increases by each year until 2019. 2017 and 2018 appear to contribute the most especially in July to December.
 
 # Hypothesis Testing
 1. Correlation Test
