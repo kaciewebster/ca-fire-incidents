@@ -98,7 +98,9 @@ for year in df_copy['StartYear'].sort_values().unique():
 # creates a list of lists where each element is a year and each element in that list element contains the latitudes and longitudes of each fire.
     
 m = folium.Map(location=[34.0522, -118.2437], zoom_start=5)
+# creates a basic map that starts in Los Angeles.
 plugins.HeatMapWithTime(df_years_list, index=[2013, 2014, 2015, 2016, 2017, 2018, 2019], radius=5, min_opacity=0.5, max_opacity=0.8, use_local_extrema=True).add_to(m)
+# adds the latitude and longitudes of the fires grouped by year.
   ```
 </details>
 
@@ -332,4 +334,12 @@ sim_2018 = beta_2018.rvs(size=10000)
 # does the same thing as above but for 2013 and 2018.
   ```
 </details>
+
+Analysis ...
+
+# Conclusion
+...
+
+# Next Time
+...
 
