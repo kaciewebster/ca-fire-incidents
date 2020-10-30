@@ -1,7 +1,7 @@
 # ca-fire-incidents
 A peak into the California Wildfires.
 
-![](img)
+![](img/85.jpeg)
 
 # Introduction
 California is known to have some of the most devastating wildfires in the country, and in recent years, it feels as though they are getting worse. However, what does 'worse' mean? Are the number of fires increasing? Are the fires causing more damage to the land? Do people believe fires are a major incident? This presentation will focus on these questions and see if these wildfire seasons are changing. And if so? How?
