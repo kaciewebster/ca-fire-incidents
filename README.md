@@ -33,12 +33,11 @@ To answer the questions above, only 10 columns are going to be utilized from thi
 
 # EDA
 
-To see how these plots were produced or these calculations found, please reference the [ca-fires-final.ipynb](/src/ca-fires-final.ipynb) file in the src folder.
+To see how these plots and calculations were produced or found, please reference the [ca-fires-final.ipynb](/src/ca-fires-final.ipynb) file in the src folder.
 
-Here are the distributions from 2013 and 2019. There is a noticeable increase in number of fires from 2013 to 2019.
-
-<img src="img/inter-map-screen-shots/2013.png" height="400" width="600">
-<img src="img/inter-map-screen-shots/2019.png" height="400" width="600">
+<p align="center">
+<img src="img/num-fires.gif" height="400" width="600">
+</p>
 
 # Nature of the Fires
 
