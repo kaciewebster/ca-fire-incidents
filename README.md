@@ -1,15 +1,17 @@
 # ca-fire-incidents
-A peak into the California Wildfires.
+A peek into the California Wildfires.
 
-![](img/85.jpeg)
+<p align="center">
+<img src="img/85.jpeg" height="400" width="600">
+</p>
 
 # Introduction
-California is known to have some of the most devastating wildfires in the country, and in recent years, it feels as though they are getting worse. However, what does 'worse' mean? Are the number of fires increasing? Are the fires causing more damage to the land? Do people believe fires are a major incident? This presentation will focus on these questions and see if these wildfire seasons are changing. And if so? How?
+California is known to have some of the most devastating wildfires in the country, and in recent years, it feels as though they are getting worse. However, what does "worse" mean? According to the United States Forest Service, they "evaluate the SFDI (Severe Fire Danger Index) against the number of newly reported wildfires and total area burned from agency fire reports". Therefore, I will analyze the change in number of fires over the years against the change in the nature of fires to see if the wildfires are getting worse.
 
 # Data
-The data used in this presentation were taken from [Kaggle](https://www.kaggle.com/ananthu017/california-wildfire-incidents-20132020). This data only focus on the years from 2013 to 2019. It lists each fire with information of where it was, what it took to extinguish it and the damage it caused. The data originally had 1,636 observations and 40 attributes each. However, this presentation will not be utilizing all of them.
+The data used in this project was taken from [Kaggle](https://www.kaggle.com/ananthu017/california-wildfire-incidents-20132020). This data only focused on the years from 2013 to 2019. It lists each fire with information of where it was, what it took to extinguish it and the damage it caused. The data originally had 1,636 observations and 40 attributes each. However, this project will not be utilizing all of them.
 
-To answer the questions above, only 10 columns are going to be utilized from this dataset. After the data cleaning, the dataset consists of 1,410 observations and 10 attributes.
+To answer the question above, only 10 columns are going to be utilized from this dataset. After the data cleaning, the dataset consists of 1,410 observations and 10 attributes.
 
 1. UniqueID: an ID number for each fire
 
@@ -31,19 +33,27 @@ To answer the questions above, only 10 columns are going to be utilized from thi
 
 10. MajorIncident: a binary response of True or False determining whether the fire was considered a 'major incident'
 
-# EDA
+# Number of Fires vs. Nature of Fires
 
 To see how these plots and calculations were produced or found, please reference the [ca-fires-final.ipynb](/src/ca-fires-final.ipynb) file in the src folder.
+
+To begin my analysis on the change in the number and nature of these fires, I wanted to see where these fires a located. Here is a map showing the locations of each fire for each year. You can see that the frequency of fires increases over the years, and they tend to cluster around Southern California, the bay area, and Sacramento.
 
 <p align="center">
 <img src="img/num-fires.gif" height="400" width="600">
 </p>
 
-# Nature of the Fires
+In order to get a better idea if the number of fires is actually increasing, here is a line plot to show the progression of wildfires in California over the years. You can see that 
 
-![](img/num-fires-line-plot.png) ![](img/total-acres-line-plot.png)
-
-![](img/med-acres-line-plot.png) ![](img/max-acres-line-plot.png)
+| Year  | Number of Fires |
+| :--:  | :--:  |
+| 2013  | 136 |
+| 2014  | 69  |
+| 2015  | 91  |
+| 2016  | 149 |
+| 2017  | 411 |
+| 2018  | 297 |
+| 2019  | 257 |
 
 These line plots help to reveal some insight into what kind of fires are burning throughout California. The line plot describing the number of fires shows that despite the decrease in fires after 2017, the number of fires is still growing overall. However, does that mean that there is more damage? The other three line plots describe the nature of these fires. 'Total AcresBurned per Year' shows that the total area of land affected by these fires was increasing until 2019. With further research, it was said that 2019 was an 'anomaly' to scientists. 2019 had heavy rains, which prevented the wildfires from getting out of control and burning too much land. 'Median AcresBurned per Year' shows that most years had mostly small fires with the exception of 2014. The median fires for all the years other than 2014 were relatively small compared to the median fire for 2014. 'Acres of the Largest Fire per Year' helps to show that the largest fires were in the years 2017 and 2018, which explains the sharp increase in those years for the 'Total AcresBurned' plot.
 
