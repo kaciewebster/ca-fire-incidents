@@ -1,7 +1,7 @@
 # California Fire Incidents
 A peek into the California Wildfires.
 
-<p align="center">
+<p align="left">
     <img src="img/85.jpeg" height="400" width="600"></p>
 
 # Introduction
@@ -12,25 +12,25 @@ The data used in this project was taken from [Kaggle](https://www.kaggle.com/ana
 
 To answer the question above, only 10 columns are going to be utilized from this dataset. After the data cleaning, the dataset consists of 1,410 observations and 10 attributes.
 
-1. UniqueID: an ID number for each fire
+1. **UniqueID:** an ID number for each fire
 
-2. Name: the name of the fire
+2. **Name:** the name of the fire
 
-3. Counties: the county the fire started in
+3. **Counties:** the county the fire started in
 
-4. StartYear: the start year of the fire
+4. **StartYear:** the start year of the fire
 
-5. StartMonth: the start month of the fire
+5. **StartMonth:** the start month of the fire
 
-6. StartDate: the start date of the fire
+6. **StartDate:** the start date of the fire
 
-7. AcresBurned: number of acres damaged
+7. **AcresBurned:** number of acres damaged
 
-8. Latitude: latitude of fire location
+8. **Latitude:** latitude of fire location
 
-9. Longitude: longitude of fire location
+9. **Longitude:** longitude of fire location
 
-10. MajorIncident: a binary response of True or False determining whether the fire was considered a 'major incident'
+10. **MajorIncident:** a binary response of True or False determining whether the fire was considered a "major incident"
 
 # Number of Fires vs. Nature of Fires
 
@@ -38,7 +38,7 @@ To see how these plots and calculations were produced or found, please reference
 
 To begin my analysis on the change in the number and nature of these fires, I wanted to see where these fires a located. Here is a map showing the locations of each fire for each year. You can see that the frequency of fires increases over the years, and they tend to cluster around Southern California, the bay area, and Sacramento.
 
-<p align="center">
+<p align="left">
     <img src="img/num-fires.gif" height="400" width="600"></p>
 
 As a sanity check to make sure that the map is showing an increase in fires over the years, here are the numbers to prove it. You can see that the number of fires are increasing with a spike in 2017 and a decrease after that.
@@ -55,33 +55,28 @@ As a sanity check to make sure that the map is showing an increase in fires over
 
 However, the chart above only represents the number of fires. Some of these fires could be little spots that were able to be stomped out. Let's get a better look at the nature of these fires or the amount of damage they caused using acres burned as the metric. Here is a line graph of the total acres burned, maximum acres burned, and median acres burned. The log was taken for each of these data points in order to find the general trend of this data. You can see that the total acres burned and maximum acres burned generally increase until 2019. However, the median acres burned peaked in 2014 and decreased after that. This indicates that recent years have seen a few large fires, but 2014 had the most consistently large fires compared to other years.
 
-<p align="center">
-    <img src="img/acres-burned-line-plot.png" height="400" width="600"></p>
+<p align="left">
+    <img src="img/acres-burned-line-plot.png"></p>
 
-# Hypothesis Testing
+# Bayes A/B Testing
 
-1. Correlation Test
+Now that we have seen the number and nature of these fires, let's take a look at how dangerous they were from the people's perspective. The data contains a column named "MajorIncident", which indicates whether each fire was considered important or not. What do I mean by "important"? An example of a "major incident" fire would be the Camp Fire in Paradise during 2018. This fire was so devastating and as a result was labeled "True" for "MajorIncident". Basically, it's one thing to analyze the number and nature of these fires. I also wanted to analyze the public's perspective of these fires by conducting a Bayes A/B test. I split the data into an "old" group and a "recent" group. The "old" group contains years 2013 to 2016, and the "recent" group contains years 2017 to 2019. Below are the posterior probabilities of each group.
 
-H0: There is no trend for the number of acres burned by the California Fires over the years 2013-2019.
+<p align="left">
+    <img src="img/posterior-plots.png"></p>
 
-H1: The number of acres burned by the California Fires has been increasing over the years.
-
-![](img/time-vs-acres-scatter.png)
-
-The level of significance used is 0.05 or 5%. Since the p-value, 0.6373, is greater than our level of significance, the data fails to reject the null hypothesis. Therefore, there is no evidence that the number of acres burned are increasing over the years 2013-2019.
-
-2. Bayes Hypothesis Test
-
-![](img/posterior-plots.png)
-
-These distribution plots show that the probability of a fire being considered a major event decreases from 2013-2019. After calculations, the probability of a fire being considered a major increase in 2013 less often than in 2019 was 0%. This shows that there was definitely a decrease in people's perception of whether a fire was a major incident. In comparison to the year 2018, the probability was still only 6%. People do not believe fires are major incidents as much as they did in 2013.
+After Bayes A/B testing, you can see that the public's concern for these fires is decreasing. The probability that a fire is a major incident is more probable in 2013 to 2016 than in 2017 to 2019. Basically, the public does not believe that fires in recent years are as important or as devastating as fires in the past. This indicates that the concern for these wildfires is decreasing.
 
 # Conclusion
-Overall, the number of fires in California are increasing along with when these fires are occurring. Wildfire season is changing from spring and summer to summer and fall. However, the 'severity' or how much damage these fires are causing cannot be proven to be increasing. People are also not as concern for fires as a major incident as they were in the past. This could be due to many reasons. The number of fires are increasing, but the acres do not appear to be increasing. So, people are probably only seeing smaller fires, which is not as major as a bigger fire.
+
+After the data analysis, I concluded that the number of fires appears to be increasing from 2013 to 2019. However, the nature of these fires does not appear to be getting worse. Recent years have seen larger fires, such as the Camp Fire in Paradise and the Mendocino Complex Fire, but the median acres burned has decreased since 2014. This indicates that there are smaller fires starting, but they do not get out of control like past years. Also, the concern for wildfires in recent years has decreased from past years. People do not see wildfires as important or devasting as they used to. Overall, it cannot be concluded that the California wildfires are getting worse.
 
 # Further Testing
 Some things to consider for further testing would be:
-1. To increase the time period: this would give a better idea of the progression of wildfire seasons in California
-2. Test for a relationship with temperature: temperature could shed some light on how wildfires are changing along with climate change
+1. **Increase the time frame.**
 
+This data only contained fire records from 2013 to 2019. A larger time frame would give more information to the wildfire trends.
 
+2. **Add a temperature factor**
+
+Temperature could indicate a relationship with the number of fires and climate change.
