@@ -77,6 +77,6 @@ Some things to consider for further testing would be:
 
 This data only contained fire records from 2013 to 2019. A larger time frame would give more information to the wildfire trends.
 
-2. **Add a temperature factor**
+2. **Add a temperature factor.**
 
 Temperature could indicate a relationship with the number of fires and climate change.
