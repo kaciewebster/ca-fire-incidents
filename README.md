@@ -34,7 +34,7 @@ To answer the question above, only 10 columns are going to be utilized from this
 
 # Number of Fires vs. Nature of Fires
 
-To see how these plots and calculations were produced or found, please reference the [ca-fires-final.ipynb](/src/ca-fires-final.ipynb) file in the src folder.
+To see how these plots and calculations were produced or found, please reference the [eda.ipynb](/src/eda.ipynb) file in the src folder.
 
 To begin my analysis on the change in the number and nature of these fires, I wanted to see where these fires a located. Here is a map showing the locations of each fire for each year. You can see that the frequency of fires increases over the years, and they tend to cluster around Southern California, the bay area, and Sacramento.
 
