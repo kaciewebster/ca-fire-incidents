@@ -1,4 +1,4 @@
-# California Fire Incidents
+# Analysis on California Fire Incidents
 A peek into the California Wildfires.
 
 <p align="left">
